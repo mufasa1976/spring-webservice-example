@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://mufasa1976.github.io/webservice/helloWorld"
+    xmlns="http://mufasa1976.github.io/webservice/helloWorld"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.0" vc:maxVersion="1.1">
+    <xs:simpleType name="sex" final="restriction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MALE"/>
+            <xs:enumeration value="FEMALE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="HelloWorldRequest">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="Name" type="xs:string"/>
+                <xs:element name="Birthdate" type="xs:dateTime"/>
+                <xs:element name="Sex" type="sex"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="HelloWorldResponse">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="Id" type="xs:unsignedLong"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

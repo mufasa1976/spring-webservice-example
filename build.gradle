@@ -46,8 +46,10 @@ dependencies {
 
 jaxb {
     xsdDir = 'src/main/resources/xsd'
+    bindingsDir = 'src/main/xjb'
+	bindings = ["helloWorld.xjb"]
     xjc {
         generatePackage = 'io.github.mufasa1976.springframework.webservice.example.xsd'
-        header = false
+		removeOldOutput = 'yes'
     }
 }
