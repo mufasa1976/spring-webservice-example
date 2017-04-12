@@ -45,8 +45,9 @@ dependencies {
 }
 
 jaxb {
-    xsdDir='src/main/resources/xsd'
+    xsdDir = 'src/main/resources/xsd'
     xjc {
-        generatePackage='io.github.mufasa1976.springframework.webservice.example.xsd'
+        generatePackage = 'io.github.mufasa1976.springframework.webservice.example.xsd'
+        header = false
     }
 }
