@@ -19,7 +19,7 @@ public class WebServiceConfig {
 
   @Bean
   public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
-    val servlet = new MessageDispatcherServlet();
+    MessageDispatcherServlet servlet = new MessageDispatcherServlet();
     servlet.setApplicationContext(applicationContext);
     servlet.setTransformWsdlLocations(true);
     return new ServletRegistrationBean(servlet, "/ws/*");
@@ -27,7 +27,7 @@ public class WebServiceConfig {
 
   @Bean(name = "helloWorld")
   public Wsdl11Definition helloWorldWsdl(XsdSchema helloWorldSchema) {
-    val wsdl = new DefaultWsdl11Definition();
+    DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
     wsdl.setPortTypeName("HelloWorldPort");
     wsdl.setLocationUri("/ws");
     wsdl.setTargetNamespace("http://mufasa1976.github.io/webservice/helloWorld");
