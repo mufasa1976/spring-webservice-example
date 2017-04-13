@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.xml.bind.annotation.adapters.XmlAdapter;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -13,16 +13,20 @@ import java.util.Optional;
 @Slf4j
 public final class LocalDateAdapter {
 
-  public static LocalDateTime unmarshal(String xmlGregorianCalendar) {
+  public static LocalDate unmarshal(String xmlGregorianCalendar) {
     return Optional.ofNullable(xmlGregorianCalendar)
-        .map(DateTimeFormatter.ISO_DATE_TIME::parse)
-        .map(LocalDateTime::from)
+        .map(DateTimeFormatter.ISO_DATE::parse)
+        .map(LocalDate::from)
         .orElse(null);
   }
 
-  public static String marshal(LocalDateTime localDateTime) {
-    return Optional.ofNullable(localDateTime)
-        .map(DateTimeFormatter.ISO_DATE_TIME::format)
+  public static String marshal(LocalDate localDate) {
+    return Optional.ofNullable(localDate)
+        .map(DateTimeFormatter.ISO_DATE::format)
         .orElse(null);
+  }
+
+  public static void main(String... args) {
+    log.info("LocalDateTime of String {}: {}", "1976-03-03", unmarshal("1976-03-03"));
   }
 }

@@ -8,8 +8,8 @@
 
     <jaxb:globalBindings>
         <jaxb:javaType 
-            name="java.time.LocalDateTime" 
-            xmlType="xs:dateTime"
+            name="java.time.LocalDate"
+            xmlType="xs:date"
             parseMethod="io.github.mufasa1976.springframework.webservice.example.util.LocalDateAdapter.unmarshal"
             printMethod="io.github.mufasa1976.springframework.webservice.example.util.LocalDateAdapter.marshal" />
     </jaxb:globalBindings>
